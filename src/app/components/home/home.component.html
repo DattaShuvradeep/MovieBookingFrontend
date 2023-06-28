@@ -1,0 +1,81 @@
+<!-- Navigation Section -->
+
+
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/home">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>MYBOOKSHOW</span>
+    <span class="example-spacer"></span>
+    <div class="example-container">
+      <mat-form-field [formGroup]="movieId">
+        <input matInput placeholder="Enter Movie Name" formControlName="id">
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="example-button-row" aria-label="Example icon-button with share icon" mat-button (click)="getMovieId()">
+        Search
+      </button>
+    </div>
+    <button mat-raised-button color="primary" class="example-button-row" aria-label="Example icon-button with share icon" mat-button (click)="openDialog()" *ngIf="role=='Admin'">
+      Add Movie
+    </button>
+    <button mat-raised-button color="primary" class="example-button-row" aria-label="Example icon-button with share icon" routerLink="/ticket" *ngIf="role=='Admin'">
+      Show Booking
+    </button>
+    <button mat-raised-button color="primary" class="example-button-row" aria-label="Example icon-button with share icon" (click)="logout()">
+      LogOut
+    </button>
+  </mat-toolbar>
+</p>
+<!-- Coontent Section -->
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="movieId">
+    <th mat-header-cell *matHeaderCellDef> Movie Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.movieId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="movieName">
+    <th mat-header-cell *matHeaderCellDef> Movie Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.movieName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="totalSeat">
+    <th mat-header-cell *matHeaderCellDef> Total Seat </th>
+    <td mat-cell *matCellDef="let element"> {{element.totalSeat}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="totalSeatBooked">
+    <th mat-header-cell *matHeaderCellDef> Booked Seat </th>
+    <td mat-cell *matCellDef="let element"> {{element.totalSeatBooked}} </td>
+  </ng-container>
+  <ng-container  matColumnDef="availableSeatsForBooking">
+    <th mat-header-cell *matHeaderCellDef> Available Seat </th>
+    <td mat-cell *matCellDef="let element"> <ng-container *ngIf="element.availableSeatsForBooking>0 ;else houseFull" >{{element.availableSeatsForBooking}} </ng-container>
+     <ng-template #houseFull>SOLD OUT</ng-template>  </td>
+
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon aria-hidden="false" aria-label="Example update icon" fontIcon="update" *ngIf="role=='Admin'" routerLink="/createMovie">update</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete" *ngIf="role=='Admin'" (click)="getData(element.movieId)">delete</mat-icon>
+      <button mat-icon-button [disabled]="element.availableSeatsForBooking <= 0" (click)="getMovieName(element.movieName)" routerLink="/booking" color="primary">
+        
+      <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete" *ngIf="role=='Customer'"  >booking</mat-icon>
+      </button> 
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+

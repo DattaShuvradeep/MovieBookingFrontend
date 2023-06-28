@@ -1,0 +1,10 @@
+.container-fluid{
+    position:fixed;
+    margin-bottom: 0%;
+    bottom: 0%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+ 

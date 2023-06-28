@@ -1,0 +1,28 @@
+
+<h2 mat-dialog-title>Add Movie</h2>
+<mat-dialog-content>
+  <form [formGroup]="createMovieForm">
+    <!-- MovieId input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="movieId" class="form-control" formControlName="movieId" />
+      <label class="form-label" for="movieId">MovieId</label>
+    </div>
+
+    <!-- Movie Name input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="movieName" class="form-control" formControlName="movieName" />
+      <label class="form-label" for="movieName">Movie Name</label>
+    </div>
+
+    <!-- Total Seat input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="totalSeat" class="form-control" formControlName="totalSeat" />
+      <label class="form-label" for="totalSeat">Total Seat</label>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true"  cdkFocusInitial (click)="addMovie()">Add</button>
+  
+</mat-dialog-actions>

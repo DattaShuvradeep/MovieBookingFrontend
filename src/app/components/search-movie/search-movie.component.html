@@ -1,0 +1,50 @@
+
+<p>
+  <mat-toolbar color="primary">
+
+    <span>MYBOOKSHOW</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" class="example-button-row" aria-label="Example icon-button with share icon" routerLink="/home">
+      Back
+    </button>
+  </mat-toolbar>
+</p>
+
+
+<table class="table" *ngIf="other==''">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Movie Id</th>
+      <th scope="col">Movie Name</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Total Seat</th>
+      <th scope="col">Total Seat Booked</th>
+      <th scope="col">Available Seats For Booking</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{movie.movieId}}</th>
+      <td>{{movie.movieName}}</td>
+      <td>{{movie.releaseDate}}</td>
+      <td>{{movie.totalSeat}}</td>
+      <td>{{movie.totalSeatBooked}}</td>
+      <td>{{movie.availableSeatsForBooking}}</td>
+     
+        <td>
+          
+          <button mat-icon-button [disabled]="" (click)="getMovieName(movie.movieName)" routerLink="/booking" color="primary">
+            
+          <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete"  >booking</mat-icon>
+          </button> 
+        </td>
+      
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="other!=''">
+ {{other}}
+</div>
+

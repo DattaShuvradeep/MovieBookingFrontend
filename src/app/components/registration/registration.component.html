@@ -1,0 +1,108 @@
+
+<!-- Section: Design Block -->
+<section class="background-radial-gradient overflow-hidden">
+
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          <br />
+          <span style="color: hsl(218, 81%, 75%)"></span>
+        </h1>
+        <p class="mb-4 opacity-70" style="color: hsl(64, 89%, 52%)">
+          We are the leading movie booking website. Here you can book movie with hassle free. Every Booking option is available here . We are upgrading our site day by day.
+        **Every Sunday from 12 am to 4am we are upgrading our site.
+        Lets Enjoy......
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+            <h1 style="text-align: center;">Create Your Own  Account</h1>
+            <form [formGroup]="registrationForm">
+              <!-- UserId input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="loginId" class="form-control" formControlName="loginId" />
+                <label class="form-label" for="loginId">UserId</label>
+              </div>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="firstName" class="form-control" formControlName="firstName" />
+                    <label class="form-label" for="firstName">First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="lastName" class="form-control" formControlName="lastName" />
+                    <label class="form-label" for="lastName">Last name</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input type="email" id="email" class="form-control" formControlName="email" />
+                <label class="form-label" for="email">Email address</label>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" id="password" class="form-control" formControlName="password" />
+                <label class="form-label" for="password">Password</label>
+              </div>
+              <!-- Confirm Password input -->
+              <div class="form-outline mb-4">
+                <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword"/>
+                <label class="form-label" for="confirmPassword">Confirm Password</label>
+              </div>
+
+               <!-- Contact Number input -->
+               <div class="form-outline mb-4">
+                <input type="text" id="contactNumber" class="form-control" formControlName="contactNumber" />
+                <label class="form-label" for="contactNumber">Contact Number</label>
+              </div>
+               <!-- Roles input -->
+               <div class="form-outline mb-4">
+                <input  type="text" id="roles" class="form-control" formControlName="roles" />
+
+                <!-- <label class="form-label" for="roles">Roles</label> -->
+              </div>
+               <!-- Secret Question input -->
+               <div class="form-outline mb-4">
+                <input type="text" id="secretQuestion" class="form-control" formControlName="secretQuestion" />
+                <label class="form-label" for="secretQuestion">Secret Question</label>
+              </div>
+              <!-- Secret Answer input -->
+              <div class="form-outline mb-4">
+                <input type="text" id="answer" class="form-control" formControlName="answer" />
+                <label class="form-label" for="answer">Secret Answer</label>
+              </div>
+
+              <!-- Checkbox -->
+              <!-- <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                <label class="form-check-label" for="form2Example33">
+                  Subscribe to our newsletter
+                </label>
+              </div> -->
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4" routerLink="/login" (click)="registerUser()">
+                Sign up
+              </button>
+              
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->

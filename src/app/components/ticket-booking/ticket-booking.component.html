@@ -1,0 +1,88 @@
+<p>
+  <mat-toolbar color="primary">
+
+    <span>MYBOOKSHOW</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="primary" class="example-button-row" aria-label="Example icon-button with share icon" routerLink="/home">
+      Back
+    </button>
+  </mat-toolbar>
+</p>
+
+
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Movie Name</ng-template>
+      <mat-form-field>
+        <mat-label>Movie Name</mat-label>
+        <input matInput placeholder="Movie" formControlName="movieName" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Theater Name">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field>
+        <mat-label>Theater Name</mat-label>
+        <!-- <input matInput formControlName="theaterName" placeholder="Theater Name"
+               required> -->
+        <mat-select formControlName="theaterName" required>
+          <mat-option value="Inox">Inox</mat-option>
+          <mat-option value="PVR">PVR</mat-option>
+          <mat-option value="axis_mall_INox">Axis Mall</mat-option>
+          <mat-option value="South City">South City</mat-option>
+          <mat-option value="Prachi">Prachi</mat-option>
+          <mat-option value="Ananya">Ananya</mat-option>
+          <mat-option value="Mani Square">Mani Square</mat-option>
+        </mat-select>       
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" label="Seat Booked">
+    <form [formGroup]="thirdFormGroup">
+      <mat-form-field>
+        <mat-label>Seat Booked</mat-label>
+        <input type="number" matInput formControlName="seatBooked" placeholder="No Of Seat Book"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="fourthFormGroup" label="address">
+    <form [formGroup]="fourthFormGroup">
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step>
+    <ng-template matStepLabel >Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="bookTicket()">Book</button>
+    </div>
+  </mat-step>
+</mat-stepper>

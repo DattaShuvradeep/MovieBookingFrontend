@@ -1,0 +1,20 @@
+{
+  "movie": [
+    {
+      "movieId": "102",
+      "movieName": "Krish3",
+      "totalSeat": "100",
+      "bookedSeat": "0",
+      "availableSeat": "100",
+      "id": 1
+    },
+    {
+      "movieId": "123",
+      "movieName": "Krish3",
+      "totalSeat": "100",
+      "bookedSeat": "0",
+      "availableSeat": "100",
+      "id": 2
+    }
+  ]
+}
